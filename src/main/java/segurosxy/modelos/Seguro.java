@@ -1,17 +1,13 @@
 package segurosxy.modelos;
 
 import java.util.Random;
-
-public abstract class Seguro {
+public abstract class Seguro{
 
     protected Integer numero;
     protected Certificado certificado;
     protected Poliza poliza;
-    protected String nivelRiesgo = "NINGUNO";
-    protected String bancoTarjeta;
-    protected String marca;
-    protected String modelo;
-
+    protected String nivelRiesgo ="NINGUNO";
+        
     public Seguro() {
         this.numero = new Random().nextInt();
     }
@@ -46,5 +42,5 @@ public abstract class Seguro {
 
     public abstract String getDetalleSeguro();
 
-    public abstract void cacularRiesgo();
+    
 }

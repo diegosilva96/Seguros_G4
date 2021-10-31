@@ -1,20 +1,30 @@
 package segurosxy.modelos;
 
-import segurosxy.modelos.interfaces.ISeguroIntegro;
+import segurosxy.modelos.interfaces.IRiesgo;
 import segurosxy.modelos.interfaces.ISeguroporRobo;
 
-public class SeguroTarjeta extends Seguro implements ISeguroporRobo, ISeguroIntegro {
+public class SeguroTarjeta extends Seguro implements IRiesgo,ISeguroporRobo {
+
+    private Tarjeta tarjeta;
 
     public SeguroTarjeta(String bancoTarjeta) {
 
         super();
-        this.bancoTarjeta = bancoTarjeta;
+        this.tarjeta = new Tarjeta(bancoTarjeta);
     }
 
-    @Override
-    public void cacularRiesgo() {
+    
+    public Tarjeta getTarjeta() {
+        return tarjeta;
+    }
 
-        if (this.bancoTarjeta.equals("AZTECA")) {
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta=tarjeta;
+    }
+
+    public void calcularRiesgo() {
+
+        if (this.getTarjeta().getBancoTarjeta().equals("AZTECA")) {
             this.nivelRiesgo = "ALTO";
         } else {
             this.nivelRiesgo = "BAJO";
@@ -24,14 +34,11 @@ public class SeguroTarjeta extends Seguro implements ISeguroporRobo, ISeguroInte
     @Override
     public String getDetalleSeguro() {
 
-        return "Seg. Tarjeta Numero: " + this.numero + " con riesgo: " + this.nivelRiesgo;
+        return "Seg. Tarjeta Numero: " + this.getNumero() + " con riesgo: " + this.getNivelRiesgo();
     }
 
     public void CoberturaRobo() {
         System.out.println("Su seguro cubre robos");
     }
 
-    public void CoberturaCompleta() {
-        System.out.println("Su seguro cubre todo tipo de daños");
-    }
 }
