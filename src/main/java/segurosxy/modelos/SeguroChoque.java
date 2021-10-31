@@ -1,12 +1,14 @@
-package segurosxy.modelos.seguros;
+package segurosxy.modelos;
 
 import segurosxy.modelos.SeguroVehicular;
+import segurosxy.modelos.interfaces.ICertificado;
+import segurosxy.modelos.interfaces.IPoliza;
 import segurosxy.modelos.interfaces.ISeguroporChoque;
 
 public class SeguroChoque extends SeguroVehicular implements ISeguroporChoque {
 
-    public SeguroChoque(String marca, String modelo) {
-        super(marca, modelo);
+    public SeguroChoque(String marca, String modelo, ICertificado certificado, IPoliza poliza) {
+        super(marca, modelo, certificado, poliza);
     }
 
     @Override
@@ -22,7 +24,12 @@ public class SeguroChoque extends SeguroVehicular implements ISeguroporChoque {
     @Override
     public String getDetalleSeguro() {
 
-        return "Seg. Vehicular Numero: " + this.getNumero() + " con riesgo: " + this.getNivelRiesgo();
+        return "Seg. Vehicular Numero: " +
+                this.getNumero() +
+                " con riesgo: " +
+                this.getNivelRiesgo() +
+                " con certificado: " + this.certificado.getNumero() + 
+                " con poliza: " + this.poliza.getNumero();
     }
 
     public void CoberturaChoque() {

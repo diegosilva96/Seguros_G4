@@ -1,25 +1,26 @@
 package segurosxy.modelos;
 
+import segurosxy.modelos.interfaces.ICertificado;
+import segurosxy.modelos.interfaces.IPoliza;
 import segurosxy.modelos.interfaces.IRiesgo;
 import segurosxy.modelos.interfaces.ISeguroporRobo;
 
-public class SeguroTarjeta extends Seguro implements IRiesgo,ISeguroporRobo {
+public class SeguroTarjeta extends Seguro implements IRiesgo, ISeguroporRobo {
 
     private Tarjeta tarjeta;
 
-    public SeguroTarjeta(String bancoTarjeta) {
+    public SeguroTarjeta(String bancoTarjeta, ICertificado certificado, IPoliza poliza) {
 
-        super();
+        super(certificado, poliza);
         this.tarjeta = new Tarjeta(bancoTarjeta);
     }
 
-    
     public Tarjeta getTarjeta() {
         return tarjeta;
     }
 
     public void setTarjeta(Tarjeta tarjeta) {
-        this.tarjeta=tarjeta;
+        this.tarjeta = tarjeta;
     }
 
     public void calcularRiesgo() {
@@ -34,7 +35,12 @@ public class SeguroTarjeta extends Seguro implements IRiesgo,ISeguroporRobo {
     @Override
     public String getDetalleSeguro() {
 
-        return "Seg. Tarjeta Numero: " + this.getNumero() + " con riesgo: " + this.getNivelRiesgo();
+        return "Seg. Tarjeta Numero: " + 
+                this.getNumero() + 
+                " con riesgo: " +
+                this.getNivelRiesgo() + 
+                " con certificado: " + this.certificado.getNumero() + 
+                " con poliza: " + this.poliza.getNumero();
     }
 
     public void CoberturaRobo() {
