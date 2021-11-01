@@ -3,9 +3,11 @@ package segurosxy.modelos;
 import segurosxy.modelos.interfaces.ICertificado;
 import segurosxy.modelos.interfaces.IPoliza;
 import segurosxy.modelos.interfaces.IRiesgo;
+import segurosxy.modelos.interfaces.ISeguro;
+import segurosxy.modelos.interfaces.ISeguroTarjeta;
 import segurosxy.modelos.interfaces.ISeguroporRobo;
 
-public class SeguroTarjeta extends Seguro implements IRiesgo, ISeguroporRobo {
+public class SeguroTarjeta extends Seguro implements ISeguroTarjeta, IRiesgo, ISeguroporRobo {
 
     private Tarjeta tarjeta;
 

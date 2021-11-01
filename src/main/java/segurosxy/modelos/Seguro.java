@@ -3,7 +3,7 @@ package segurosxy.modelos;
 import java.util.Random;
 import segurosxy.modelos.interfaces.ICertificado;
 import segurosxy.modelos.interfaces.IPoliza;
-public abstract class Seguro{
+public class Seguro{
 
     protected Integer numero;
     protected ICertificado certificado;
@@ -43,8 +43,4 @@ public abstract class Seguro{
     public String getNivelRiesgo() {
         return this.nivelRiesgo;
     }
-
-    public abstract String getDetalleSeguro();
-
-    
 }

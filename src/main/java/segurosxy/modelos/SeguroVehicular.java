@@ -3,8 +3,10 @@ package segurosxy.modelos;
 import segurosxy.modelos.interfaces.ICertificado;
 import segurosxy.modelos.interfaces.IPoliza;
 import segurosxy.modelos.interfaces.IRiesgo;
+import segurosxy.modelos.interfaces.ISeguro;
+import segurosxy.modelos.interfaces.ISeguroVehicular;
 
-public class SeguroVehicular extends Seguro implements IRiesgo{
+public class SeguroVehicular extends Seguro implements ISeguroVehicular, IRiesgo{
 
     private Vehiculo vehiculo;
 
